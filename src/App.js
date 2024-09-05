@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import { Outlet } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer />
+      <Header />
+      <div className='min-h-[calc(100vh-120px)]'>
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 }
 
