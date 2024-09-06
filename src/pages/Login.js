@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import LoginIcon from '../assest/signin.gif'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
+import Context from '../context';
 
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const { fetchUserDetails } = useContext(Context);
+    
+
     // extract data from input
     const [data, setData] = useState({
         email: "",
@@ -43,6 +47,7 @@ const Login = () => {
 
         if (userData.success) {
             toast.success(userData.message)
+            fetchUserDetails();
             setTimeout(() => {
                 navigate('/')
             }, 2000)

@@ -8,6 +8,14 @@ const SummaryApi = {
     login: {
         url: `${backendDomain}/api/user/login`,
         method: "post"
+    },
+    current_user: {
+        url: `${backendDomain}/api/user/user-details`,
+        method: "get"
+    },
+    loggout_user: {
+        url: `${backendDomain}/api/user/sign-out`,
+        method: "get",
     }
 }
 
